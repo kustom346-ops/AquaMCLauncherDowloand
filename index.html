@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaMC — Лаунчер Minecraft</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Кастомный курсор -->
+    <div id="cursor" class="cursor"></div>
+    <div id="cursor-trail" class="cursor-trail"></div>
+    <div id="cursor-glow" class="cursor-glow"></div>
+    
+    <!-- Шумовой фон -->
+    <div id="noise-overlay"></div>
+    
+    <!-- Клик-вспышка -->
+    <div id="click-flash"></div>
+    
+    <canvas id="starfield"></canvas>
+    <div id="particles-container"></div>
+    
+    <nav class="navbar glass-effect">
+        <div class="nav-container">
+            <div class="logo glitch-hover" data-text="AquaMC">
+                <span class="logo-text">AquaMC</span>
+                <span class="logo-sub">LAUNCHER</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link" data-typewrite="ВОЗМОЖНОСТИ">ВОЗМОЖНОСТИ</a>
+                <a href="#anarchy" class="nav-link" data-typewrite="АНАРХИЯ">АНАРХИЯ</a>
+                <a href="#specs" class="nav-link" data-typewrite="ДАННЫЕ">ДАННЫЕ</a>
+                <a href="#download" class="nav-link glow-btn-mini magnetic-btn">СКАЧАТЬ</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                СКОРО ЗАПУСК
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line typewriter" data-text="ПОГРУЖЕНИЕ">ПОГРУЖЕНИЕ</span>
+                <span class="title-line gradient-text typewriter" data-text="В AQUAMC" data-delay="400">В AQUAMC</span>
+            </h1>
+            <p class="hero-desc fade-up">
+                Мощный лаунчер Minecraft с удобным интерфейсом, скоростным запуском и гибкой настройкой. Поддержка лицензионных аккаунтов.
+            </p>
+            
+            <div class="cta-group">
+                <a href="https://www.dropbox.com/scl/fi/tcrlo94f512hx12zqh980/AquaMC-Setup-2.4.1.exe?rlkey=e2zubsh2b4p6p3xsm3up2xudr&st=vam0m6ps&dl=1" target="_blank" class="cta-primary magnetic-btn" style="text-decoration: none;">
+                    СКАЧАТЬ ЛАУНЧЕР
+                    <span class="btn-glow"></span>
+                </a>
+            </div>
+            
+            <div class="platforms">
+                <span class="platform-badge">WINDOWS</span>
+            </div>
+        </div>
+
+        <div class="hero-visual floating-parallax" data-parallax-depth="0.15">
+            <div class="floating-mockup tilt-3d">
+                <div class="mockup-screen">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="mockup-title">AQUAMC LAUNCHER</div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="game-preview">
+                            <div class="preview-block-top"></div>
+                            <div class="preview-block-bottom"></div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="mockup-info">
+                            <span>Minecraft 1.16.5</span>
+                            <span class="mod-count">ANARCHY</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="orbit-ring"></div>
+                <div class="orbit-ring-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title wave-reveal">
+            <span class="typewriter" data-text="ВОЗМОЖНОСТИ">ВОЗМОЖНОСТИ</span>
+            <span class="gradient-text typewriter" data-text="ЛАУНЧЕРА" data-delay="300">ЛАУНЧЕРА</span>
+        </h2>
+        
+        <div class="features-grid">
+            <div class="feature-card glass-effect card-3d magnetic-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">&#9670;</div>
+                </div>
+                <h3 class="glitch-hover" data-text="УДОБНЫЙ ИНТЕРФЕЙС">УДОБНЫЙ ИНТЕРФЕЙС</h3>
+                <p>Минималистичный дизайн. Всё необходимое — на главном экране. Ничего лишнего.</p>
+                <div class="card-glow"></div>
+            </div>
+            
+            <div class="feature-card glass-effect card-3d magnetic-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">&#9650;</div>
+                </div>
+                <h3 class="glitch-hover" data-text="СКОРОСТНОЙ ЗАПУСК">СКОРОСТНОЙ ЗАПУСК</h3>
+                <p>Мгновенная загрузка. Оптимизированные ассеты и кэширование. Минимум ожидания.</p>
+                <div class="card-glow"></div>
+            </div>
+            
+            <div class="feature-card glass-effect card-3d magnetic-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">&#9881;</div>
+                </div>
+                <h3 class="glitch-hover" data-text="ГИБКАЯ НАСТРОЙКА">ГИБКАЯ НАСТРОЙКА</h3>
+                <p>Полный контроль над параметрами Java и лаунчера. Выделение ОЗУ, аргументы JVM.</p>
+                <div class="card-glow"></div>
+            </div>
+            
+            <div class="feature-card glass-effect card-3d magnetic-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">&#9832;</div>
+                </div>
+                <h3 class="glitch-hover" data-text="ЛИЦЕНЗИЯ">ЛИЦЕНЗИЯ</h3>
+                <p>Поддержка лицензионных аккаунтов Minecraft. Безопасная авторизация через Microsoft.</p>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="anarchy" class="anarchy">
+        <h2 class="section-title wave-reveal">
+            <span class="typewriter" data-text="ИГРОВЫЕ">ИГРОВЫЕ</span>
+            <span class="gradient-text typewriter" data-text="РЕЖИМЫ" data-delay="300">РЕЖИМЫ</span>
+        </h2>
+        
+        <div class="anarchy-card glass-effect card-3d magnetic-card">
+            <div class="anarchy-content">
+                <h3 class="glitch-hover" data-text="АНАРХИЯ">АНАРХИЯ</h3>
+                <p>Сервер без правил. Выживай, сражайся, строй — никто не ограничит твою свободу. Никаких привилегий, никаких донатов.</p>
+                <div class="release-info">
+                    <span class="release-date">РЕЛИЗ 1–3 ИЮЛЯ</span>
+                    <span class="release-version">Версия 1.16.5</span>
+                </div>
+            </div>
+            <div class="anarchy-visual">
+                <div class="anarchy-symbol">
+                    <span>A</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="specs">
+        <h2 class="section-title wave-reveal">
+            <span class="typewriter" data-text="ТЕХНИЧЕСКИЕ">ТЕХНИЧЕСКИЕ</span>
+            <span class="gradient-text typewriter" data-text="ДАННЫЕ" data-delay="300">ДАННЫЕ</span>
+        </h2>
+        
+        <div class="specs-container glass-effect">
+            <div class="spec-item">
+                <span class="spec-label">ВЕРСИЯ</span>
+                <span class="spec-value">1.16.5</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-item">
+                <span class="spec-label">SETUP</span>
+                <span class="spec-value">73 MB</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-item">
+                <span class="spec-label">ЛАУНЧЕР</span>
+                <span class="spec-value">251 MB</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-item">
+                <span class="spec-label">ОЗУ</span>
+                <span class="spec-value">1–16 GB</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-item">
+                <span class="spec-label">JAVA</span>
+                <span class="spec-value">8+</span>
+            </div>
+        </div>
+        
+        <div class="servers-info glass-effect">
+            <h3>СЕРВЕРА AQUAMC</h3>
+            <div class="server-list">
+                <div class="server-item">
+                    <div class="server-info-group">
+                        <span class="server-name">AquaMC Anarchy</span>
+                        <span class="server-ip">Релиз 1–3 июля</span>
+                    </div>
+                    <span class="server-status upcoming">СКОРО</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <h2 class="section-title wave-reveal">
+            <span class="typewriter" data-text="НАЧАТЬ">НАЧАТЬ</span>
+            <span class="gradient-text typewriter" data-text="ИГРУ" data-delay="300">ИГРУ</span>
+        </h2>
+        
+        <div class="download-card glass-effect card-3d magnetic-card">
+            <div class="download-content">
+                <h3>AquaMC Launcher</h3>
+                <p>Версия 2.4.1 для Windows</p>
+                
+                <div class="download-options">
+                    <a href="https://www.dropbox.com/scl/fi/tcrlo94f512hx12zqh980/AquaMC-Setup-2.4.1.exe?rlkey=e2zubsh2b4p6p3xsm3up2xudr&st=vam0m6ps&dl=1" target="_blank" class="download-btn primary-dl magnetic-btn" style="text-decoration: none;">
+                        СКАЧАТЬ ДЛЯ WINDOWS
+                        <span class="dl-size">Setup 73 MB</span>
+                        <span class="btn-ripple"></span>
+                    </a>
+                </div>
+                
+                <div class="download-info">
+                    <span class="info-item">Размер после установки: 251 MB</span>
+                    <span class="info-item">Java 8+</span>
+                </div>
+            </div>
+            
+            <div class="download-visual">
+                <div class="orbital-loader">
+                    <div class="loader-ring"></div>
+                    <div class="loader-core"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo glitch-hover" data-text="AquaMC">
+                <span class="logo-text">AquaMC</span>
+                <span class="logo-sub">LAUNCHER</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://discord.gg/K2jYaVAtjZ" target="_blank">DISCORD</a>
+                <a href="https://discord.gg/K2jYaVAtjZ" target="_blank">ПОДДЕРЖКА</a>
+                <a href="#">ПРАВИЛА</a>
+            </div>
+            <p class="copyright">2025 AquaMC. Не связан с Mojang AB.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
